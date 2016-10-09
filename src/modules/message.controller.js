@@ -7,7 +7,7 @@ var chatElem = $('.chat')
 
 function addMesasge(message) {
 	var content = message.content
-	var userName = message.name
+	var userName = message.user.name
 	var html = '<div class="message">'
 		+ '<h5 class="user-name">' + userName + '</h5>'
 		+ '<p class="content">' + content + '</p>'

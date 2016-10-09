@@ -1,9 +1,11 @@
+'use strict'
+
+var currentUser = require('../current-user.js')
+
 function Message(content){
 	this.content = content
 	this.timeStamp = new Date().getTime()
-	this.imageUrl = 'http://avatar.jpg'
-	this.name = '? ?'
-	this.nickName = '?'
+	this.user = currentUser
 }
 
 module.exports = Message

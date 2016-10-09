@@ -69,6 +69,15 @@ body {
 	margin-left: 40px;
 }
 
+.chat .message .user-name{
+	margin-bottom: 5px;
+}
+
+.chat .message .time{
+	font-size: 10px;
+	opacity: 0.7;
+	margin-left: 5px;
+}
 
 /*Mesasge send
 --------------------------------*/

@@ -2,6 +2,7 @@
 
 var PubNub = require('pubnub');
 var config = require('config.json')
+var Message = require('./types/message.js')
 
 if (!config.subscribeKey) {
 	throw new Error('"subscribeKey" parameter required in config.json')
@@ -44,7 +45,8 @@ module.exports = {
 			withPresence: true // also subscribe to presence instances.
 		})
 	},
-	sendMessage: function(channel, message){
+	sendMessage: function(channel, content){
+		var message = new Message(content)
 		pubnub.publish(
 			{
 				message: message,
@@ -56,7 +58,7 @@ module.exports = {
 			}
 		);
 	},
-	onMessageRecieved: function(channel, callback){
+	onRecieved: function(channel, callback){
 		pubnub.addListener({
 			message: function(event) {
 				var message = event.message;

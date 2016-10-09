@@ -6,14 +6,14 @@ var pubnub = require('./pubnub.js')
 var chatElem = $('.chat')
 
 function addMesasge(message) {
-	var messageElem = $('<div>')
-	messageElem.addClass('message')
-	messageElem.html(message)
+	var content = message.content
+	var userName = message.name
+	var html = '<div class="message">'
+		+ '<h5 class="user-name">' + userName + '</h5>'
+		+ '<p class="content">' + content + '</p>'
+	+ '</div>'
+	var messageElem = $(html)
 	chatElem.append(messageElem)
 }
 
-function handleMessageRecieved(message){
-
-}
-
-pubnub.onMessageRecieved('general', addMesasge)
+pubnub.onRecieved('general', addMesasge)

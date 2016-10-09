@@ -1,12 +1,17 @@
 'use strict';
 
-var $ = require('jquery'),
-	lodash = require('lodash');
 
+var lodash = require('lodash')
+var chatChannels = require('./data/channels.js')
 var pubnub = require('./pubnub.js')
+var sendController = require('./send.controller.js')
+
 
 window.send = pubnub.sendMessage
 
-pubnub.onMessageRecieved(function(message){
+pubnub.connect(chatChannels)
+// pubnub.sendMessage('ch1', 'message')
+// pubnub.sendMessage('ch2', 'message')
+pubnub.onMessageRecieved('general', function(message){
 	console.log(message)
 })

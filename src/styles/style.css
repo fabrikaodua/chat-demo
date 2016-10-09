@@ -60,6 +60,8 @@ body {
 ----------------------------*/
 .chat {
 	padding: 25px;
+	padding-bottom: 100px;
+	overflow: auto;
 }
 
 .chat .message {

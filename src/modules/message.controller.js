@@ -14,9 +14,12 @@ function addMesasge(message) {
 			+ userName
 			+ '<span class="time">' + time + '</span>'
 		+ '</h5>'
-		+ '<p class="content">' + content + '</p>'
+		+ '<p class="content"></p>'
 	+ '</div>'
 	var messageElem = $(html)
+	var contentElem = messageElem.find('.content')
+
+	contentElem.text(content)
 	chatElem.append(messageElem)
 }
 

@@ -5,6 +5,7 @@ var lodash = require('lodash')
 var chatChannels = require('./data/channels.js')
 var pubnub = require('./pubnub.js')
 var sendController = require('./send.controller.js')
+var messageController = require('./message.controller.js')
 
 
 window.send = pubnub.sendMessage

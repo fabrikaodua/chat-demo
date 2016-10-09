@@ -6,14 +6,20 @@ var pubnub = require('./pubnub.js')
 var sendForm = $('.form-send')
 var messageField = $('.field-message')
 
-messageField.on('keydown', function(event){
-	var message = this.value
+function handleInput(event){
 	//handle press on "Enter"
 	if (event.keyCode === 13) {
-		pubnub.sendMessage('general', message)
+		sendForm.submit()
 	}
-})
+}
 
+function handleSend(event){
+	event.preventDefault()
+	var message = messageField.val()
+	pubnub.sendMessage('general', message)
+	messageField.val('')
+}
 
+messageField.on('keydown', handleInput)
+sendForm.on('submit', handleSend)
 
-console.log(sendForm)
